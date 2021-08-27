@@ -1,9 +1,9 @@
 package com.glogachev.seminar
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.glogachev.seminar.databinding.ActivityMainBinding
-import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,39 +14,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        binding.apply {
-            btnDownload.setOnClickListener {
-                loadLargeFile()
-            }
-            btnUpdateUi.setOnClickListener {
-                updateUiInMainThread()
-            }
-
-            btnRight.setOnClickListener {
-                updateUi()
-            }
+        binding.btnHandlerLvl1.setOnClickListener {
+            val intent = Intent(this, HandlerLvl1Activity::class.java)
+            startActivity(intent)
         }
-    }
-
-    // anr error
-    private fun loadLargeFile() {
-        TimeUnit.SECONDS.sleep(20)
-    }
-
-    // crash app
-    private fun updateUiInMainThread() {
-        Thread {
-            binding.tvExampleText.text = "try to updateUI"
-        }.start()
-    }
-
-    private fun updateUi() {
-        Thread {
-            TimeUnit.SECONDS.sleep(5)
-            binding.tvExampleText.post {
-                binding.tvExampleText.text = "success"
-            }
-        }.start()
+        binding.btnHandlerLvl2.setOnClickListener {
+            val intent = Intent(this, HandlerLvl2Activity::class.java)
+            startActivity(intent)
+        }
     }
 }

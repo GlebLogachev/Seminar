@@ -44,7 +44,7 @@ class HandlerLvl1Activity : AppCompatActivity() {
                 R.id.btnEnableDisable -> handler.post { toggleButtonState() }
                 R.id.btnChangeColor -> handler.post { nextRandomColor() }
 
-                R.id.btnEnableDisableDelay -> handler.postDelayed( DELAY){ toggleButtonState() }
+                R.id.btnEnableDisableDelay -> handler.postDelayed(DELAY) { toggleButtonState() }
                 R.id.btnChangeColorDelay -> handler.postDelayed({ nextRandomColor() }, DELAY)
 
                 R.id.btnChangeColorDelayToken -> {

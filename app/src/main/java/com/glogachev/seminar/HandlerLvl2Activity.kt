@@ -16,7 +16,7 @@ class HandlerLvl2Activity : AppCompatActivity() {
     private val binding by lazy {
         ActivityHandlerLvl1Binding.inflate(layoutInflater)
     }
-
+//обработка на стороне самого handler
     private val handler = Handler(Looper.getMainLooper()) {
         when (it.what) {
             TOGGLE_MESSAGE -> toggleButtonState()
@@ -24,6 +24,7 @@ class HandlerLvl2Activity : AppCompatActivity() {
             TOAST_MESSAGE -> showToast()
 
         }
+    // сообщаем системе, что сообщение успешно обработали
         return@Handler true
     }
 
